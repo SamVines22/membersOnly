@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a member!</title>
+</head>
+<body>
+    <h1>Type to correct password into the box to become a member</h1>
+    <%if (message) {%>
+        <%=message%>
+        <%}%>
+    <form method = "POST" action = "/member">
+        <label for ="text">Password</label>
+        <input type = "text" name = "text" id = "text">
+        <button type = "Submit">Submit</button>
+    </form>
+</body>
+</html>

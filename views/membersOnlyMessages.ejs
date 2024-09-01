@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages!</title>
+</head>
+<body>
+    
+    <h2>Welcome <%=user.username%> add you message here!</h2>
+
+   <form method = "POST" action = "/membersonly">
+    <lebel for = "text">Add your message here!</lebel>
+    <textarea id = "text" name = "text"></textarea>
+    <button type = "submit">Post</button>
+   </form>
+   <h3>Messages</h3>
+   <ul>
+   <% messages.map((item)=> { %>
+     <li>   name:<%=item.username%> message:<%=item.text%> time: <%=item.time%> </li>
+     <%if (user.admin){%>
+      <form method = "POST" action = "/delete/<%=item.id%>">
+        <button type = "submit">delete</button>
+      </form>
+      <%}%>
+   <%})%>
+   </ul>
+   <%if (!user.admin){%>
+    <a href="/admin">become an admin</a>
+    <%}%>
+</body>
+</html>

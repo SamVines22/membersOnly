@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages!</title>
+</head>
+<body>
+    
+    <h2>Welcome <%=user.username%> add your message here!</h2>
+
+   <form method = "POST" action = "/messages">
+    <lebel for = "text">Add your message here!</lebel>
+    <textarea id = "text" name = "text"></textarea>
+    <button type = "submit">Post</button>
+   </form>
+   <h3>Recent Messages</h3>
+   <ul>
+   <% messages.map((item)=> { %>
+     <li>   <%=item.text%> </li>
+   <%})%>
+   </ul>
+<% if (user.member) {%> 
+<a href = "/membersonly">See everything!</a>
+ <%} else {%>
+  <a href = "/member"> Become a  member!</a>
+  <%}%>
+</body>
+</html>
